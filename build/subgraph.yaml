@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: core
@@ -19,7 +19,7 @@ dataSources:
         - Upgraded
       abis:
         - name: core
-          file: ./abis/core.json
+          file: core/abis/core.json
       eventHandlers:
         - event: AdminChanged(address,address)
           handler: handleAdminChanged
@@ -27,7 +27,7 @@ dataSources:
           handler: handleBeaconUpgraded
         - event: Upgraded(indexed address)
           handler: handleUpgraded
-      file: ./src/core.ts
+      file: core/core.wasm
   - kind: ethereum
     name: lp
     network: gnosis
@@ -45,7 +45,7 @@ dataSources:
         - lpUpgraded
       abis:
         - name: lp
-          file: ./abis/lp.json
+          file: lp/abis/lp.json
       eventHandlers:
         - event: lpAdminChanged(address,address)
           handler: handlelpAdminChanged
@@ -53,7 +53,7 @@ dataSources:
           handler: handlelpBeaconUpgraded
         - event: lpUpgraded(indexed address)
           handler: handlelpUpgraded
-      file: ./src/lp.ts
+      file: lp/lp.wasm
   - kind: ethereum
     name: bet
     network: gnosis
@@ -71,7 +71,7 @@ dataSources:
         - betUpgraded
       abis:
         - name: bet
-          file: ./abis/bet.json
+          file: bet/abis/bet.json
       eventHandlers:
         - event: betAdminChanged(address,address)
           handler: handlebetAdminChanged
@@ -79,4 +79,4 @@ dataSources:
           handler: handlebetBeaconUpgraded
         - event: betUpgraded(indexed address)
           handler: handlebetUpgraded
-      file: ./src/bet.ts
+      file: bet/bet.wasm
